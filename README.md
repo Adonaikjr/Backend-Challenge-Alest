@@ -1,6 +1,6 @@
 # Backend-Challenge-Alest
 
-# Para executar o projeto git clone ....
+## Para executar o projeto git clone ....
  --yarn 
  --yarn dev
 

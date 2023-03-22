@@ -9,6 +9,7 @@ const clothesController = new clothes_controller();
 const uploadFile = multer(MULTER);
 
 clothesRoutes.post("/", uploadFile.single("linkUrl"), clothesController.create);
+clothesRoutes.post("/:title", clothesController.SearchTitle);
 clothesRoutes.get("/", clothesController.show);
 clothesRoutes.delete('/:id', AuthMiddleware, clothesController.delete)
 clothesRoutes.put('/:id',uploadFile.single("linkUrl"), clothesController.update)

@@ -95,4 +95,22 @@ export class clothes_controller {
       return res.status(500).json({ Error: "Erro na execução do serviço" });
     }
   }
+  async SearchTitle(req, res) {
+    const { title } = req.params;
+
+    //conectando com db firebase 'instancia'
+    const clothesRepositories = new clothes_repositories();
+
+    //enviando reposiório para o service fazer a execução
+    const clothesService = new clothes_service(clothesRepositories);
+
+    try {
+      const response = await clothesService.executeSearch({
+        title
+      })
+      return res.json({response})
+    } catch (error) {
+      return res.status(500).json({ Error: "Erro na execução do serviço" });
+    }
+  }
 }

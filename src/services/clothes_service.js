@@ -52,4 +52,20 @@ export class clothes_service {
       throw new Error("Erro ao conectar com repositório", error);
     }
   }
+  async executeSearch({ title }) {
+    try {
+      let clothes = [];
+      const response = await this.clothesRepositories.Search();
+      response.docs.map((doc) => {
+        clothes.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      const newDataSearchClothes = clothes.find((item) => item.title === title);
+      return newDataSearchClothes
+    } catch (error) {
+      throw new Error("Erro ao conectar com repositório", error);
+    }
+  }
 }

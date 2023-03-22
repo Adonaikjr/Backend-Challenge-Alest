@@ -49,4 +49,15 @@ export class clothes_repositories {
       throw new Error("Erro ao fazer chamada para o banco de dados ", error);
     }
   }
+
+    async Search() {
+    try {
+      // buscando os dados no firestore
+      const response = await db.collection("clothes").get();
+      return response
+    } catch (error) {
+        throw new Error("Erro ao fazer chamada para o banco de dados", error);
+    }
+  
+}
 }

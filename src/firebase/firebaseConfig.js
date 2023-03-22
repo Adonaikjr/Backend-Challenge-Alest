@@ -1,4 +1,4 @@
-{
+export const firebaseConfig = {
   "type": "service_account",
   "project_id": "challenge-alest",
   "private_key_id": "5d168f953969b91da40dcea52c6606a2bb7287dd",
